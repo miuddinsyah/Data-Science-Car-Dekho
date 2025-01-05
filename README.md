@@ -46,7 +46,7 @@ The dataset contains attributes such as:
      ```
   3. Run the Flask application:
      ```bash
-     python app.py
+     python Deployment UAS Flask.py
      ```
   4. Open the app in a browser:
      ```
@@ -67,7 +67,7 @@ The dataset contains attributes such as:
      ```
   3. Run the Tkinter application:
      ```bash
-     python tkinter_app.py
+     python Deployment UAS.ipynb
      ```
 
   4. Use the graphical interface to perform:
