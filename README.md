@@ -37,7 +37,7 @@ The dataset contains attributes such as:
 - **Steps**:
   1. Clone the repository:
      ```bash
-     git clone https://github.com/yourusername/vehicle-dataset-analysis.git
+     git clone https://github.com/miuddinsyah/vehicle-dataset-analysis.git
      cd vehicle-dataset-analysis
      ```
   2. Install dependencies:
@@ -58,7 +58,7 @@ The dataset contains attributes such as:
 - **Steps**:
   1. Clone the repository:
      ```bash
-     git clone https://github.com/yourusername/vehicle-dataset-analysis.git
+     git clone https://github.com/miuddinsyah/vehicle-dataset-analysis.git
      cd vehicle-dataset-analysis
      ```
   2. Install dependencies:
