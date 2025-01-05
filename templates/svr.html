@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVR Regression</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-size: 14px;
+            color: #333;
+        }
+
+        input[type="number"],
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e9ecef;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>SVR Regression Parameters</h1>
+        <form method="POST">
+            <label for="c">C (Regularization Parameter):</label>
+            <input type="number" id="c" name="c" placeholder="e.g., 1.0" step="0.1" required>
+
+            <label for="kernel">Kernel:</label>
+            <select id="kernel" name="kernel">
+                <option value="linear">Linear</option>
+                <option value="poly">Polynomial</option>
+                <option value="rbf">RBF (Gaussian)</option>
+            </select>
+
+            <label for="gamma">Gamma:</label>
+            <select id="gamma" name="gamma">
+                <option value="scale">Scale</option>
+                <option value="auto">Auto</option>
+            </select>
+
+            <button type="submit">Run SVR</button>
+        </form>
+
+        {% if mse %}
+        <div class="result">
+            <h3>Mean Squared Error (MSE): {{ mse }}</h3>
+        </div>
+        {% endif %}
+
+        {% if error %}
+        <div class="result error">
+            <h3>Error: {{ error }}</h3>
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>

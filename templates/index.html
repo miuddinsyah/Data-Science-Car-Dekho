@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Toolkit</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .button-group button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            background: #007bff;
+            transition: background 0.3s ease;
+        }
+
+        .button-group button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Machine Learning Toolkit</h1>
+        <div class="button-group">
+            <button onclick="navigateTo('eda')">Exploratory Data Analysis (EDA)</button>
+            <button onclick="navigateTo('linear_regression')">Linear Regression</button>
+            <button onclick="navigateTo('svr')">SVR Regression</button>
+            <button onclick="navigateTo('knn')">KNN Classification</button>
+            <button onclick="navigateTo('decision_tree')">Decision Tree Classification</button>
+            <button onclick="navigateTo('kmeans')">K-Means Clustering</button>
+        </div>
+    </div>
+    <script>
+        function navigateTo(endpoint) {
+            window.location.href = `/${endpoint}`;
+        }
+    </script>
+</body>
+
+</html>

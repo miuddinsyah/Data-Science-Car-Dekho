@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linear Regression</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e9ecef;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function fillRandom() {
+            document.getElementById('year').value = Math.floor(Math.random() * (2022 - 2000 + 1)) + 2000; // Random year between 2000 and 2022
+            document.getElementById('km_driven').value = Math.floor(Math.random() * 200000) + 10000; // Random km between 10,000 and 200,000
+            document.getElementById('mileage').value = parseFloat((Math.random() * (25 - 10) + 10).toFixed(1)); // Random mileage between 10 and 25
+            document.getElementById('engine').value = Math.floor(Math.random() * (3000 - 1000 + 1)) + 1000; // Random engine capacity between 1000 and 3000 cc
+            document.getElementById('max_power').value = Math.floor(Math.random() * (200 - 50 + 1)) + 50; // Random power between 50 and 200 hp
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Linear Regression Prediction</h1>
+        <form method="POST">
+            <label for="year">Year of Manufacture:</label>
+            <input type="number" id="year" name="year" placeholder="e.g., 2015" required>
+
+            <label for="km_driven">Kilometers Driven:</label>
+            <input type="number" id="km_driven" name="km_driven" placeholder="e.g., 50000" required>
+
+            <label for="mileage">Mileage (km/l):</label>
+            <input type="number" id="mileage" name="mileage" step="0.1" placeholder="e.g., 18.5" required>
+
+            <label for="engine">Engine Capacity (cc):</label>
+            <input type="number" id="engine" name="engine" placeholder="e.g., 1200" required>
+
+            <label for="max_power">Maximum Power (hp):</label>
+            <input type="number" id="max_power" name="max_power" placeholder="e.g., 82" required>
+
+            <button type="submit">Predict Selling Price</button>
+            <button type="button" onclick="fillRandom()">Random</button>
+        </form>
+
+        {% if prediction %}
+        <div class="result">
+            <h2>Predicted Selling Price: ₹{{ prediction }}</h2>
+        </div>
+        {% endif %}
+
+        {% if mse %}
+        <div class="result">
+            <h3>Mean Squared Error (MSE): {{ mse }}</h3>
+        </div>
+        {% endif %}
+
+        {% if error %}
+        <div class="result error">
+            <h3>Error: {{ error }}</h3>
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>

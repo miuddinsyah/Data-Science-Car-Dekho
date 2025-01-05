@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KNN Parameters</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-size: 14px;
+            color: #333;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e9ecef;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>KNN Parameters</h1>
+        <form method="POST">
+            <label for="neighbors">Number of Neighbors:</label>
+            <input type="number" id="neighbors" name="neighbors" placeholder="e.g., 5" required>
+
+            <label for="weights">Weights:</label>
+            <div>
+                <input type="radio" id="uniform" name="weights" value="uniform" checked>
+                <label for="uniform">Uniform</label>
+                <input type="radio" id="distance" name="weights" value="distance">
+                <label for="distance">Distance</label>
+            </div>
+
+            <button type="submit">Run KNN</button>
+        </form>
+
+        {% if report %}
+        <div class="result">
+            <h3>Classification Report:</h3>
+            <pre>{{ report }}</pre>
+        </div>
+        {% endif %}
+
+        {% if error %}
+        <div class="result error">
+            <h3>Error: {{ error }}</h3>
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>
